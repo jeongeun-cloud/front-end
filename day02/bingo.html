@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+            
+
+        // 1. 5*5 배열 생성
+        // 2. 1~25 저장
+        // 3. shuffle
+        // 4. document.write()로 <table> 출력
+        var bingoArr = [];
+
+        // 5 * 5 배열 생성
+        // bingoArr에 1차원 배열 5개 넣는다.
+        for(i=0; i<5; i++) {
+            bingoArr[i] = new Array(5);
+        }
+        
+        // 1~25 저장
+        var cnt = 1;
+        for(i=0; i<bingoArr.length; i++) {
+            for(j=0; j<bingoArr[i].length; j++) {
+                bingoArr[i][j] = cnt++;
+            }
+        }
+        
+        // 셔플
+        for(i=0; i<bingoArr.length; i++) {
+            for(j=0; j<bingoArr[i].length; j++) {
+                var x = Math.floor(Math.random()*5);
+                var y = Math.floor(Math.random()*5);
+                
+                var tmp = bingoArr[i][j];
+                bingoArr[i][j] = bingoArr[x][y];
+                bingoArr[x][y] = tmp;
+            }
+        }
+        
+        // 출력 
+        document.write("<table border=1px>");
+            for(i=0; i<bingoArr.length; i++) {
+                document.write("<tr>");
+                    for(j=0; j<bingoArr[i].length; j++) {
+                        document.write("<td>");
+                            document.write(bingoArr[i][j]);
+                        document.write("</td>");
+                    }
+                }
+                document.write("</tr>");
+        document.write("</table>");
+
+        
+    </script>
+</body>
+</html>
