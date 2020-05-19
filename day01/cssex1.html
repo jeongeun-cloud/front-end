@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mystyle.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <style>
+        h1 { display: inline;}
+        h1, p {color : orangered;}  /* 모든 h1, p */
+        .odd {color:olive;}         /* 클래스 odd */
+        #first {color: magenta;}    /* 아이디 first */
+        #last{ color: royalblue;}   /* 아이디 last */
+        /* p {color:red;} */
+        span{
+            color:navy;
+        }
+
+        a:link, a:visited{
+            background-color: #f44300;
+            color: white;
+            padding:14px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        /* 링크에 마우스를 올려놓거나 클릭했을 때 */
+        a:hover, a:active {
+            background-color: blue;
+        }
+        ul>li{
+            list-style-type: none;
+        }
+
+        /* table, tr, th{
+            border: 1px solid;
+        }
+
+        table {
+            border-collapse: collapse;
+        } */
+
+        .container {
+            position: relative;
+        }
+
+        .center {
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+            text-align: center;
+            font-size: 18px;
+        }
+
+        img{
+            width: 100%;
+            height: auto;
+            opacity: 0.3;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="https://www.naver.com">네이버</a>
+
+    <div class="container">
+        <img src="../12.png" alt="norway" width="1000" height="300">
+        <div class="center">Centerd</div>
+    </div>
+
+    <!-- ul>li{item$5}*5 -->
+    <ul>
+        <li>item1</li>
+        <li>item2</li>
+        <li>item3</li>
+        <li>item4</li>
+        <li>item5</li>
+    </ul>
+
+    <div class="table-responsive">
+        <table class="table table-hover">
+            <tr>
+                <th class="info">Company</th>
+                <th class="info">Contact</th>
+                <th class="info">Country</th>
+            </tr>
+            <tr>
+                <td>Alfreds Futterkiste</td>
+                <td>Maria Anders</td>
+                <td>Germany</td>
+            </tr>
+            <tr>
+                <td>Island Trading</td>
+                <td>Helen Bennett</td>
+                <td>UK</td>
+            </tr>
+            <tr>
+                <td>Magazzini Alimentari Riuniti</td>
+                <td>Giovanni Rovelli</td>
+                <td>Italy</td>
+            </tr>
+        </table>
+    </div>
+      
+
+
+
+    <h1 class="odd">Hello</h1>
+    <h1 id="first">Hello</h1>
+    <h1 class="odd">Hello</h1>
+    <h1>He<span>llo wor</span>ld</h1>
+    <h1 id="last">Hello</h1>
+
+    <p>world</p>
+    <p>world</p>
+    <p>world</p>
+    <p>world</p>
+    <p>world</p>
+
+</body>
+</html>
