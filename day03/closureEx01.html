@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 클로져 예제 -->
+
+    <!-- <script>
+        // 출력 결과 3
+        var cnt = 0;    // 전역 변수라서 변수이름 충돌 가능성, 외부에서 접근가능, 값 보호 필요
+
+        function increseCnt() {
+            cnt++;
+        }
+        increseCnt();
+        increseCnt();
+        increseCnt();
+        console.log(cnt);
+    </script> -->
+
+    <!-- <script>
+        // 출력 결과 0 0 0
+        function increseCnt() {
+            var cnt2 = 0;   // 지역변수, 범위는 좁아졌으나 매번 0으로 초기화 됨
+            cnt++
+            console.log(cnt2);
+        }
+
+        increseCnt();
+        increseCnt();
+        increseCnt();
+
+        // console.log(cnt2);   // 에러
+    </script> -->
+
+    <!-- <script>
+        // 결과는 1 2 3 이지만 내부함수라서 외부에서 호출이 불가능하다
+        function closure() {
+            var cnt = 0;
+
+            function increseCnt() {
+                cnt++;
+                console.log(cnt);
+            }
+
+            increseCnt();
+            increseCnt();
+            increseCnt();
+        }
+
+        closure();
+        // increseCnt();   // 에러
+    </script> -->
+
+    <script>
+        // 출력결과 1 2 3 
+        function closure(){
+        var cnt = 0;
+        
+        return function() {
+                cnt++;
+                console.log(cnt);
+            };
+        }
+
+        var increseCnt = closure();
+        
+        increseCnt();
+        increseCnt();
+        increseCnt();
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <script>
+        for(var i=0; i<3; i++) {
+            // 1초 뒤에 function을 호출
+            // 3,3,3이 출력한다.
+            setTimeout(function() {alert(i);},0);
+        }
+    </script> -->
+
+    <!-- <script>
+        // 해결하는 방법
+        for(i=0; i<3; i++) {
+            (function(x){
+                setTimeout(function() {alert(x);},0);
+            }) (i);
+        }
+    </script> -->
+
+    <!-- <script>
+        // let으로 바꿔서 해결하는 방법
+        for(let i=0; i<3; i++) {
+            setTimeout(function() {alert(i);},0);
+        }
+    </script> -->
+    
+    <script>
+        // for-each문으로 해결 
+        [0,1,2].forEach.set(function(i) {
+            setTimeout(function() {alert(i);}, 0);
+        });
+    </script>
+
+</body>
+</html>

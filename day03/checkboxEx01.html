@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            margin: 0;
+            padding: 0;
+        }
+        ul> li{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #board1{
+            display: inline-block;
+        }
+        #board2{
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="board1">
+        <ul>
+            <li><input type="checkbox" value="전체선택" onclick="selectAll()">전체선택</li>
+            <li><input type="checkbox" name="sports" value="축구">축구</li>
+            <li><input type="checkbox" name="sports" value="농구">농구</li>
+            <li><input type="checkbox" name="sports" value="야구">야구</li>
+            <li><input type="checkbox" name="sports" value="탁구">탁구</li>
+            <li><input type="checkbox" name="sports" value="배구">배구</li>
+        </ul>
+    </div>
+    <div id="board2">
+        <textarea name="result" id="result" cols="30" rows="8"></textarea>
+    </div>
+
+
+    <script>
+        window.onclick = function() {
+            var chk = document.getElementsByName("sports");
+            var sports = "";
+
+            for(i=0; i<chk.length; i++) {
+                if(chk[i].checked) {
+                    sports += chk[i].value + " ";
+                }
+            }
+            // document.querySelector("text").innerHTML = sports;
+            result.innerHTML = sports;
+        }
+
+        function selectAll() {
+            var inputArr = document.getElementsByTagName("input");
+            
+            for(i=1; i<inputArr.length; i++) {
+                if(inputArr[0].checked) {
+                    inputArr[i].checked = true;
+                    result.innerHTML += inputArr[i].value + " ";
+                }else {
+                    inputArr[i].checked = false;
+                    result.innerHTML = " ";
+                }
+            }
+        }
+    </script>
+    
+
+    <!-- 강사님 방법 -->
+    <!-- <script>
+        // gv. 지역영역(함수내부)이 아니니까 글로벌 영역
+        var ta = document.getElementById("result");
+        var inputArr = document.getElementsByTagName("input");
+    
+        // HTML페이지의 로딩이 끝나면 발생하는 이벤트
+        window.onload = function() {
+            // 1. DOM에서 원하는 태그에 대한 참조를 얻어온다.
+            var inputArr = document.getElementsByTagName("input");
+
+            // 2. 태그에 대한 작업을 한다.
+            // 모든 <input>에 이벤트를 걸어준다.
+            // inputArr[0].onclick = inputClick();  // 호출결과를 저장
+            
+            for(i=0;i<inputArr.length;i++){
+                inputArr[i].onclick = inputClick;    // 함수 연결
+            }
+        }
+
+        function inputClick() {
+
+            // 체크된 모든 input의 value를 ta에 보여준다.
+            var tmp = "";
+
+            // 전체(inputArr[0])가 클릭된 경우에는 나머지 모든 체크박스를 체크해준다.
+            if(inputArr[0].checked) {
+                for(i=0;i<inputArr.length;i++)
+                    inputArr[i].checked = true;
+            } 
+
+            for(i=1;i<inputArr.length;i++){
+                if(inputArr[i].checked) {
+                    // 체크된 input태그의 value를 ta에 저장한다.
+                    tmp += inputArr[i].value
+                }
+            }
+            ta.value = tmp;
+
+        }
+    </script> -->
+
+
+</body>
+</html>

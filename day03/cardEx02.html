@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="btnShow"> 보이기 </button>
+    <button id="btnHide"> 뒤집기 </button>
+    <button id="btnShuffle"> 섞기 </button>
+    <br><br>
+
+    <img src="./card_img/0.png" >
+    <img src="./card_img/1.png" >
+    <img src="./card_img/2.png" >
+    <img src="./card_img/3.png" >
+    <img src="./card_img/4.png" >
+    <img src="./card_img/5.png" >
+    <img src="./card_img/6.png" >
+    <img src="./card_img/7.png" >
+    <img src="./card_img/8.png" >
+    <img src="./card_img/9.png" >
+    <img src="./card_img/10.png">
+    <img src="./card_img/11.png">
+    <img src="./card_img/12.png">
+    <img src="./card_img/13.png">
+    <img src="./card_img/14.png">
+    <img src="./card_img/15.png">
+    <img src="./card_img/16.png">
+    <img src="./card_img/17.png">
+    <img src="./card_img/18.png">
+    <img src="./card_img/19.png">
+    <img src="./card_img/20.png">
+    <img src="./card_img/21.png">
+    <img src="./card_img/22.png">
+    <img src="./card_img/23.png">
+    <img src="./card_img/24.png">
+    <img src="./card_img/25.png">
+    <img src="./card_img/26.png">
+    <img src="./card_img/27.png">
+    <img src="./card_img/28.png">
+    <img src="./card_img/29.png">
+    <img src="./card_img/30.png">
+    <img src="./card_img/31.png">
+    <img src="./card_img/32.png">
+    <img src="./card_img/33.png">
+    <img src="./card_img/34.png">
+    <img src="./card_img/35.png">
+    <img src="./card_img/36.png">
+    <img src="./card_img/37.png">
+    <img src="./card_img/38.png">
+    <img src="./card_img/39.png">
+    <img src="./card_img/40.png">
+    <img src="./card_img/41.png">
+    <img src="./card_img/42.png">
+    <img src="./card_img/43.png">
+    <img src="./card_img/44.png">
+    <img src="./card_img/45.png">
+    <img src="./card_img/46.png">
+    <img src="./card_img/47.png">
+    <img src="./card_img/48.png">
+    <img src="./card_img/49.png">
+    <img src="./card_img/50.png">
+    <img src="./card_img/51.png">
+    <!-- <img src="back.png" alt="" style="visibility: hidden;"> -->
+
+
+    <script>
+        var before = [0,1,2,3,4,5,6,7,8,9,10,11,12,
+        13,14,15,16,17,18,19,20,21,22,23,24,25,
+        26,27,28,29,30,31,32,33,34,35,36,37,38,
+        39,40,41,42,43,44,45,46,47,48,49,50,51];
+        var cnt = 0;    // 횟수를 위한 카운트
+        var prenum = 0; // 카드 비교를 위한 첫 번째 눌린 id
+        var curnum = 0; // 두 번째 눌린 id
+        var chk = 0;    // 정답개수
+
+        window.onload = function() {
+            // 1. 버튼 태그의 참조를 가져온다.
+            var btnHide = document.getElementById("btnHide");
+            var btnShow = document.getElementById("btnShow");
+            var btnShuffle = document.getElementById("btnShuffle");
+            var imgArr = document.getElementsByTagName("img");
+
+            // 2. 이벤트를 등록한다.
+            btnHide.onclick = hide;
+            btnShow.onclick = show;
+            btnShuffle.onclick = shuffle;
+
+            // 이미지 클릭 이벤트
+            for(i=0; i<imgArr.length; i++) {
+                imgArr[i].setAttribute("id", i);
+                imgArr[i].onclick = imgchk;
+            }
+        }
+
+        // 원래 / 섞은대로 보이기
+        function show() {
+            var imgArr = document.getElementsByTagName("img");
+            for(i=0; i<imgArr.length; i++) {
+                imgArr[i].src = "./card_img/" + before[i] + ".png";
+            }
+        }
+
+        // 원래 / 섞은대로 숨기기
+        function hide() {
+            var imgArr = document.getElementsByTagName("img");
+            
+            for(i=0; i<imgArr.length; i++) {
+                imgArr[i].setAttribute("id", before[i]);
+                imgArr[i].src = "back.png";
+            }
+        }
+
+        function shuffle() {
+            var imgArr = document.getElementsByTagName("img");
+
+            for(i=0; i<imgArr.length; i++) {
+                var x = Math.floor(Math.random() * imgArr.length);
+                
+                // 이미지 난수 순서대로 출력
+                var tmp = imgArr[i].src;
+                imgArr[i].src = imgArr[x].src;
+                imgArr[x].src = tmp;
+
+                // 배열에 난수 저장
+                var tmp = before[i];
+                before[i] = before[x];
+                before[x] = tmp;
+            }
+        }
+
+        function imgchk() {
+            cnt++;  // 카운트 증가
+            var imgArr = document.getElementsByTagName("img");
+            this.src = "./card_img/" + this.id + ".png";
+
+            if(cnt == 1) {
+                prenum = this.id;
+            } 
+
+            if(cnt == 2) {
+                curnum = this.id;
+                if(Math.abs(prenum - curnum) == 26) {
+                    setTimeout(function() {
+                        chk+=2;
+                        if(chk == 52) {
+                            window.alert("모두 맞추셨습니다!");
+                        }
+                    },300);
+                } else {
+                    setTimeout(function(){
+                        imgArr[prenum].src = "back.png";
+                        imgArr[curnum].src = "back.png";
+                    },1000);
+                }
+                cnt = 0;
+            }
+        }
+    </script>
+</body>
+</html>

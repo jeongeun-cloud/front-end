@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #selBox{
+            display: inline-block;
+        }
+        #sports, #result {
+            height: 130px;
+            width: 50px;
+        }
+        #btn{
+            margin-left: 10px;
+            display: inline-block;
+        }
+        #resultBox{
+            margin-left: 10px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div id="selBox">
+        <form action="">
+            <select name="sports" id="sports" multiple>
+                <option value="축구">축구</option>
+                <option value="농구">농구</option>
+                <option value="야구">야구</option>
+                <option value="탁구">탁구</option>
+                <option value="배구">배구</option>
+            </select>
+        </form>
+    </div>
+    <div id="btn">
+        <button id="addAll" onclick="addAll()"> >> </button> <br>
+        <button id="add" onclick="add()"> > </button> <br>
+        <button id="remove" onclick="remove()"> < </button> <br>
+        <button id="removeAll" onclick="removeAll()"> << </button>
+    </div>
+    <div id="resultBox">
+        <!-- <textarea name="result" id="result" cols="30" rows="8"></textarea> -->
+        <form action="">
+            <select name="result" id="result" multiple>
+            </select>
+        </form>
+    </div>
+
+    <script>
+        var optionArr = document.getElementsByTagName("option");
+
+        function addAll() {
+            for(i=0; i<optionArr.length; i++) {
+                result.add(optionArr[i]);
+            }
+        }
+
+        function add() {
+            for(i=0; i<optionArr.length; i++) {
+                if(optionArr[i].selected) {
+                    optionArr[i].selected = false;
+                    result.add(optionArr[i]);
+                }
+            }
+        }
+
+        function remove() {
+            for(i=0; i<optionArr.length; i++) {
+                if(optionArr[i].selected) {
+                    optionArr[i].selected = false;
+                    sports.add(optionArr[i]);
+                }
+            }
+        }
+
+        function removeAll() {
+            for(i=0; i<optionArr.length; i++) {
+                sports.add(optionArr[i]);
+            }
+        }
+
+    </script>
+</body>
+</html>

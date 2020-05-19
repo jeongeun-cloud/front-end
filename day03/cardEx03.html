@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="btnShow"> 보이기 </button>
+    <button id="btnHide"> 뒤집기 </button>
+    <button id="btnShuffle"> 섞기 </button>
+    <br><br>
+
+    <img src="./card_img/0.png" >
+    <img src="./card_img/1.png" >
+    <img src="./card_img/2.png" >
+    <img src="./card_img/3.png" >
+    <img src="./card_img/4.png" >
+    <img src="./card_img/5.png" >
+    <img src="./card_img/6.png" >
+    <img src="./card_img/7.png" >
+    <img src="./card_img/8.png" >
+    <img src="./card_img/9.png" >
+    <img src="./card_img/10.png">
+    <img src="./card_img/11.png">
+    <img src="./card_img/12.png">
+    <img src="./card_img/13.png">
+    <img src="./card_img/14.png">
+    <img src="./card_img/15.png">
+    <img src="./card_img/16.png">
+    <img src="./card_img/17.png">
+    <img src="./card_img/18.png">
+    <img src="./card_img/19.png">
+    <img src="./card_img/20.png">
+    <img src="./card_img/21.png">
+    <img src="./card_img/22.png">
+    <img src="./card_img/23.png">
+    <img src="./card_img/24.png">
+    <img src="./card_img/25.png">
+    <img src="./card_img/26.png">
+    <img src="./card_img/27.png">
+    <img src="./card_img/28.png">
+    <img src="./card_img/29.png">
+    <img src="./card_img/30.png">
+    <img src="./card_img/31.png">
+    <img src="./card_img/32.png">
+    <img src="./card_img/33.png">
+    <img src="./card_img/34.png">
+    <img src="./card_img/35.png">
+    <img src="./card_img/36.png">
+    <img src="./card_img/37.png">
+    <img src="./card_img/38.png">
+    <img src="./card_img/39.png">
+    <img src="./card_img/40.png">
+    <img src="./card_img/41.png">
+    <img src="./card_img/42.png">
+    <img src="./card_img/43.png">
+    <img src="./card_img/44.png">
+    <img src="./card_img/45.png">
+    <img src="./card_img/46.png">
+    <img src="./card_img/47.png">
+    <img src="./card_img/48.png">
+    <img src="./card_img/49.png">
+    <img src="./card_img/50.png">
+    <img src="./card_img/51.png">
+
+    <script>
+        var firstCard = null;   // 첫 번째 카드를 저장하기 위한 변수
+        var secondCard = null;  // 두 번째 카드를 저장하기 위한 변수
+        var cnt = 0;            // 클릭 횟수
+
+        // 이벤트 발생시키기
+        window.onload = function() {
+
+            // 1. 이미지 태그의 참조를 가져온다.
+            var imgArr = document.getElementsByTagName("img");
+
+            // 2. 이미지 클릭 이벤트를 발생시킨다.
+            for(i=0; i<imgArr.length; i++) {
+                imgArr[i].setAttribute("id", i);
+                imgArr[i].onclick = cardClick;
+            }
+        }
+
+        function cardClick() {
+            var imgArr = document.getElementsByTagName("img");
+
+
+            // 클릭 횟수를 증가시킨다.
+            cnt++;
+            // 뒤집는다.
+            flip(this);
+            // 번호를 저장한다.
+            // 첫 번째 뒤집었을 때, 번호를 저장한다
+            if(cnt == 1) firstCard = this.id;
+            
+            // 두 번째 뒤집었을 때, 
+            if(cnt == 2) {
+                // 1. 번호를 저장한다.
+                secondCard = this.id;
+                // 2. 비교한다.
+                compare(firstCard, secondCard);
+                // 3. 횟수를 초기화한다.
+                cnt = 0;
+            }
+        }
+        
+        // 비교한다.
+        function flip(card) {
+            window.alert(card.src + "뒤집는다");
+            card.src
+        }
+
+        function compare(first, second) {
+            window.alert("비교한다");
+        }
+    </script>
+</body>
+</html>

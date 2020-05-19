@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 onmouseover="this.style.color='blue';" onmouseout="this.style.color='red';">ABC</h1>
+    
+    <h1 id="header0">Header</h1>
+    <h1>Header</h1>
+    <h1>Header</h1>
+
+    <script>
+        window.onload = function() {
+            var h1Tag = document.getElementById('header0');
+            var h1Tags = document.querySelectorAll('h1');   // 모든 h1태그
+
+            h1Tag.innerHTML += '-first';
+
+            for(i=0; i < h1Tags.length; i++) {
+                h1Tags[i].innerHTML += '-' + i;
+                h1Tags[i].style.border = '2px solid red';
+                h1Tags[i].style.color = 'orange';
+                h1Tags[i].style.backgroundColor = 'yellow';
+            }
+        }
+    </script>
+
+    <!-- <script>
+        window.onload = function() {
+            // 1. DOM에서 원하는 태그에 대한 참조를 얻어온다.
+
+            // 2. 태그에 대한 작업을 한다.
+
+        }
+    </script> -->
+    
+</body>
+</html>

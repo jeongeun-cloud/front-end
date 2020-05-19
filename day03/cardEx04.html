@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            height: 150px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button id="btnFlip"> 뒤집기 </button>
+    <br><br>
+
+    <div id="board">
+        <!-- innerHTML "<img src = "">" 로 넣어주면 됨 -->
+    </div>
+
+    <script>
+        var firstCard = null;
+        var btns = document.querySelectorAll('button');     // 버튼 태그의 참조를 가져온다.
+        var imgArr = document.getElementsByTagName("img");  // 이미지 태그의 참조를 가져온다.
+        
+        
+        window.onload = function(){
+
+            var tmp = "";
+            var FILE_PATH = "./card_img/"
+            var cnt = 0;        // 클릭 횟수를 위한 변수 
+            var correctCnt = 0; // 정답 카운트를 위한 변수 
+            
+
+            for(i=0; i<52; i++) {
+                var imgPath = FILE_PATH + i + ".png";
+                tmp += "<img src='"+ imgPath +"'>";
+            }
+
+            // <img>를 board에 넣는다.
+            board.innerHTML = tmp;
+
+            // 2. 이미지 클릭 이벤트를 발생시킨다.
+            for(i=0; i<imgArr.length; i++) {
+                imgArr[i].setAttribute("id", i);
+                imgArr[i].onclick = cardClick;
+            }
+
+            // 뒤집기 버튼 
+            btns[0].onclick = function () {
+                for (i = 0; i < imgArr.length; i++) {
+                    imgArr[i].src = "./back.png";
+                }
+            }
+
+            function save(card) {
+                firstCard = card;
+            }
+
+            function isBack(card){
+                return card.src.indexOf('file:///E:/html/day03/back.png')!=-1;
+
+            }
+
+            function flip(card) {
+                card.src = isBack(card) ? FILE_PATH+card.id+".png" : "./back.png"; 
+            }
+
+            function compareCard(first, second) {
+                // 같으면 true, 틀리면 false
+                var firstId = first.getAttribute("id");
+                var secondId = second.getAttribute("id");
+
+                return Math.abs(firstId - secondId) == 26;
+            }
+
+            function cardClick() {
+                
+                // 0. 이미 뒤집힌 것은 뒤집지 않는다.
+                if(!isBack(this)) {
+                    alert("뒤집힌 카드는 뒤집을 수 없습니다.");
+                    return;
+                }
+                
+                // 1. 뒤집는다.
+                flip(this);
+
+                // 2. 횟수를 증가시켜 준다.
+                cnt++;
+
+                // 3. 첫 번째 카드인지 확인
+                if(cnt == 1) {
+                    // 3-1. 첫 번째 카드이면
+                    // 3-1-1. 카드를 저장
+                    save(this);
+
+                } else if(cnt == 2) {
+                    // 3-2. 두 번째 카드이면
+                    var secondCard = this;
+                    // 3-2-1. 첫 번째 카드와 비교
+                    if(compareCard(firstCard, secondCard)) {
+                        // 3-2-1-1. 같으면
+                        setTimeout(function() {
+                            // window.alert("같습니다!");
+                            // 횟수 초기화
+                            cnt = 0;
+                            // 3-2-1-1-1. 기타작업
+                            correctCnt ++;
+                        },400);
+                    } else {
+                        // 3-2-1-2. 다르면
+                        // 3-2-1-2-1. 카드를 다시 뒤집는다.
+                        setTimeout(function() {
+                            // 횟수 초기화
+                            cnt = 0;
+                            // window.alert("틀렸습니다!");
+                            flip(firstCard);
+                            flip(secondCard);
+                        },400);
+                    }
+
+                    if(correctCnt == 25) {
+                        window.alert("모두 맞추셨습니다!!!");
+                    }
+                }
+            }
+            
+        }
+    </script>
+</body>
+</html>
