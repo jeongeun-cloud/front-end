@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script> <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {margin:0; text-decoration: none;}
+        .jumbotron h1,p {
+            text-align: center;
+            font-size: 15px;
+        }
+        img{
+            width : 100%;
+            height: auto;
+        }
+        
+        .table-hover{
+            table-layout: fixed; 
+            width: 100%;
+        }
+        .glyphicon-plane {
+            width: 50px;
+            text-align: center;
+        }
+
+        ul.menu {
+            z-index: 99;
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color:teal;
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        li {
+            float: left;
+        }
+
+        li a {
+            font-size: 18px;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+        }
+
+        li a:hover:not(.active) {
+            text-decoration: none;
+            background-color: white;
+            color: black;
+        }
+
+        .gal {
+            font-size: 15px;
+            position: relative;
+            width: 1000px;
+
+        }
+        div.gallery {
+            position: static;
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 275px;
+        }
+
+        div.gallery:hover {
+            border: 1px solid #777;
+        }
+
+        div.gallery img {
+            width: 100%;
+            height: 250px;
+        }
+
+        div.desc {
+            padding: 15px;
+            text-align: center;
+        }
+        .carousel-inner > .carousel-item > img {
+            height: 720px;
+        }
+    </style>
+
+
+    <script>
+        function myFunction() {
+            window.alert("펭하!");
+        }
+
+    </script>
+
+</head>
+<body>
+    
+    <script> 
+        $('.carousel').carousel({ 
+            interval: 2000 
+        }) 
+    </script>
+
+    <ul class="menu">
+        <li><span class="glyphicon glyphicon-plane" aria-hidden="true" style="font-size: 25px; margin-top: 15px; color: white;"></span></li>
+        <li><a href="#demo">Home</a></li>
+        <li><a href="#news">News</a></li>
+        <li><a href="#contact">History</a></li>
+        <li><a href="#about">Album</a></li>
+    </ul>
+
+    <div id="demo" class="carousel slide" data-ride="carousel"> 
+        <div class="carousel-inner"> 
+            <div class="carousel-item active"> 
+                <a class="img_click" href="../img_5terre.jpg">
+                    <img class="d-block w-100" src="../img_5terre.jpg" alt="First slide">
+                </a>
+            </div> 
+            <div class="carousel-item"> 
+                <a class="img_click" href="../img_forest.jpg">
+                    <img class="d-block w-100" src="../img_forest.jpg" alt="Second slide"> 
+                </a>
+            </div> 
+            <div class="carousel-item"> 
+                <a class="img_click" href="../img_lights.jpg">
+                    <img class="d-block w-100" src="../img_lights.jpg" alt="Third slide"> 
+                </a>
+            </div> 
+            
+            <!-- 화살표 버튼 --> 
+            <a class="carousel-control-prev" href="#demo" data-slide="prev"> 
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a> 
+            <a class="carousel-control-next" href="#demo" data-slide="next"> 
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a> 
+            <ul class="carousel-indicators"> 
+                <li data-target="#demo" data-slide-to="0" class="active"></li>
+                <li data-target="#demo" data-slide-to="1"></li>
+                <li data-target="#demo" data-slide-to="2"></li> 
+            </ul> 
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="jumbotron" id="news" style="width: 1000;">
+            <h1 style="font-size: 30px;">Hello World!!</h1>
+            <img src="../unnamed.jpg" style="opacity: 0.3;" alt="background">
+            <p style="padding-top: 30px; font-size: 24px;">
+                This is a simple hero unit, a simple jumbotron-style component for calling 
+                extra attention to featured content or information.
+            </p>
+            <p><a class="btn btn-primary btn-lg" role="button" onclick="myFunction()" style="color: white;">Learn more</a></p>
+        </div>
+        <!-- 메인페이지 끝 -->
+
+        <div id="contact" style="font-size: 14px;">
+            <table class="table table-bordered table-hover">
+                <tr class="success">
+                  <th>Company</th>
+                  <th>Contact</th>
+                  <th>Country</th>
+                </tr>
+                <tr>
+                  <td>Alfreds Futterkiste</td>
+                  <td>Maria Anders</td>
+                  <td>Germany</td>
+                </tr>
+                <tr>
+                  <td>Island Trading</td>
+                  <td>Helen Bennett</td>
+                  <td>UK</td>
+                </tr>
+                <tr>
+                  <td>Magazzini Alimentari Riuniti</td>
+                  <td>Giovanni Rovelli</td>
+                  <td>Italy</td>
+                </tr>
+                <tr>
+                  <td>Magazzini Alimentari Riuniti</td>
+                  <td>Giovanni Rovelli</td>
+                  <td>Italy</td>
+                 </tr>
+                 <tr>
+                  <td>Magazzini Alimentari Riuniti</td>
+                  <td>Giovanni Rovelli</td>
+                  <td>Italy</td>
+                </tr>
+
+              </table>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+              <div class="thumbnail">
+                <img src="../peng1.png" alt="...">
+                <div class="caption">
+                  <h3>Thumbnail label</h3>
+                  <p>Add a description of the image here</p>
+                  <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                  <img src="../peng2.jpg" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>Add a description of the image here</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                  <img src="../pengsu_main.png" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>Add a description of the image here</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                  <img src="../peng4.gif" alt="...">
+                  <div class="caption">
+                    <h3>Thumbnail label</h3>
+                    <p>Add a description of the image here</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                  </div>
+                </div>
+              </div>
+        </div>
+        
+        <!-- 테이블 div 끝 -->
+        <!-- <div class="gal" id="about"> -->
+            <!-- <div class="gallery">
+                <a target="_blank" href="../peng1.png">
+                <img src="../peng1.png" alt="Forest" width="600" height="400">
+                </a>
+                <div class="desc">Add a description of the image here</div>
+            </div>
+            <div class="gallery">
+                <a target="_blank" href="../peng2.jpg">
+                <img src="../peng2.jpg" alt="Forest" width="600" height="400">
+                </a>
+                <div class="desc">Add a description of the image here</div>
+            </div>
+            
+            <div class="gallery">
+                <a target="_blank" href="../pengsu_main.png">
+                <img src="../pengsu_main.png" alt="Northern Lights" width="600" height="400">
+                </a>
+                <div class="desc">Add a description of the image here</div>
+            </div> -->
+        <!-- </div> -->
+        <!-- 갤러리 끝  -->
+
+
+        <div>
+            <iframe width="1100" height="600" src="https://www.youtube.com/embed/qjDbedTM-E8" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <!-- 동영상 div끝 -->
+
+        
+          
+
+    </div> <!-- Container div end-->
+
+</body>
+</html>
