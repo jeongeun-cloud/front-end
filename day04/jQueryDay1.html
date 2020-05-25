@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .reverse{
+            color: cadetblue;
+        }
+    </style>
+</head>
+<body>
+    <select name="" id="" multiple>
+        <option value="item1">item 1</option>
+        <option value="item2">item 2</option>
+        <option value="item3">item 3</option>
+        <option value="item4">item 4</option>
+        <option value="item5">item 5</option>
+    </select>
+
+    <h1>Hello1</h1>
+    <h1>Hello2</h1>
+    <h1>Hello3</h1>
+    <h1>Hello4</h1>
+    <h1>Hello5</h1>
+
+
+    <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+    <script>
+        // $(document).ready(function() {
+            // 작업할 코드를 작성한다.
+            // alert("Hello");
+        // });
+
+        // 마우스 갖다대면 글자 색 변경
+        // $('h1').on({
+        //         mouseenter : function() {$(this).addClass('reverse')},
+        //         mouseleave : function() {$(this).removeClass('reverse')}
+        // });
+
+        $('h1').hover(function(){
+            $(this).addClass('reverse');
+        }, function() {
+            $(this).removeClass('reverse');
+        });
+    </script>
+</body>
+</html>
